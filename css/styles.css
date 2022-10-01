@@ -100,7 +100,7 @@ img {
 
 .header-logo,
 .footer-logo {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 26px;
   line-height: 1.19;
@@ -136,9 +136,11 @@ img {
 .nav:hover,
 .nav:focus {
   color: var(--azure-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-current {
+  position: relative;
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
@@ -149,9 +151,22 @@ img {
   color: var(--azure-color);
 }
 
+.nav-current::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: -1px;
+  left: 0;
+  height: 4px;
+  background-color: var(--azure-color);
+  border-radius: 2px;
+  z-index: 10;
+}
+
 .nav-current:hover,
 .nav-current:focus {
   color: var(--azure-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-contact-list {
@@ -175,19 +190,13 @@ img {
 .header-contact-element:hover,
 .header-contact-element:focus {
   color: var(--azure-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-mail,
 .icon.icon-smartphone {
   fill: currentColor;
   margin-right: 10px;
-}
-
-.icon-mail:hover,
-.icon-mail:focus,
-.icon-smartphone:hover,
-.icon-smartphone:focus {
-  fill: var(--azure-color);
 }
 
 .web {
@@ -209,7 +218,7 @@ img {
       var(--rgbagunmetal-color),
       var(--rgbagunmetal-color)
     ),
-    url('../images/Meeting_bgn.jpg');
+    url("../images/Meeting_bgn.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -228,7 +237,7 @@ img {
 }
 
 .order-section-button {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.87;
@@ -247,6 +256,7 @@ img {
 .order-section-button:focus {
   background-color: #007ec7;
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop {
@@ -258,7 +268,9 @@ img {
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
   visibility: visible;
-  transition: opacity 1500ms cubic-bezier(0.4, 0, 0.2, 1), visibility 1500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 1500ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 1500ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
 }
 
 .backdrop.is-hidden {
@@ -268,15 +280,16 @@ img {
 }
 
 .modal-window {
-position: absolute;
-width: 528px;
-height: 581px;
-top: 50%;
-left: 50%;
-background: var(--white-color);
-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-border-radius: 4px;
-transform: translate(-50%, -50%);
+  position: absolute;
+  width: 528px;
+  height: 581px;
+  top: 50%;
+  left: 50%;
+  background: var(--white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transform: translate(-50%, -50%);
 }
 
 .icon-cross {
@@ -297,10 +310,10 @@ transform: translate(-50%, -50%);
   border-radius: 50%;
   padding: 0;
 
-background-color: var(--color-white);
-border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 
-cursor: pointer;
+  cursor: pointer;
 }
 
 .feature-list {
@@ -361,6 +374,31 @@ cursor: pointer;
 
 .example-header {
   margin-bottom: 50px;
+}
+
+.example-image {
+  position: relative;
+}
+
+.example-text {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+
+  display: flex;
+  width: 100%;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  line-height: calc(16 / 14);
+  text-transform: uppercase;
+
+  color: #ffffff;
+  background-color: rgba(47, 48, 58, 0.8);
+
+  z-index: 10;
 }
 
 .team-section {
@@ -447,6 +485,8 @@ cursor: pointer;
 .social-media-link:focus {
   background-color: var(--azure-color);
   color: var(--white-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-media-svg {
@@ -487,6 +527,8 @@ cursor: pointer;
 .clients-link:focus {
   color: var(--azure-color);
   border-color: var(--azure-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Portfolio page */
@@ -502,7 +544,7 @@ cursor: pointer;
 }
 
 .filter-button {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.62;
@@ -524,10 +566,13 @@ cursor: pointer;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   cursor: pointer;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-button-active {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.62;
@@ -547,7 +592,8 @@ cursor: pointer;
   background-color: #007ec7;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
@@ -563,6 +609,36 @@ cursor: pointer;
 
 .portfolio-element {
   width: 370px;
+  box-sizing: border-box;
+}
+
+.image-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-element-image {
+  display: block;
+}
+
+.portfolio-element-floating-text {
+  position: absolute;
+  width: 370px;
+  height: 294px;
+  padding: 63px 24px;
+  margin: 0;
+
+  font-size: 18px;
+  color: var(--white-color);
+  background-color: var(--azure-color);
+  opacity: 0.9;
+
+  transition: transform 750ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-element-link:hover .portfolio-element-floating-text,
+.portfolio-element-link:focus .portfolio-element-floating-text {
+  transform: translateY(-100%);
 }
 
 .portfolio-element-link {
@@ -574,6 +650,7 @@ cursor: pointer;
 .portfolio-element-link:focus {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-element-name {
@@ -663,6 +740,7 @@ cursor: pointer;
 .footer-contact-element:hover,
 .footer-contact-element:focus {
   color: var(--azure-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social {
@@ -707,6 +785,8 @@ cursor: pointer;
 .footer-social-link:focus {
   background-color: var(--azure-color);
   color: var(--white-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 footer-social-media-svg {
